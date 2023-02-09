@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SupermarketPlus</title>
+    <link rel="stylesheet" href="/home.css">
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+</head>
+
+<body>
+    <section class="header">
+        <nav>
+            <a href="/"><img src="images/toppng.com-design-png-hd-logo-design-png-hd-1024x655.png" alt="" width="20"
+                    height="100"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="/login">Log In</a></li>
+                    <li><a href="/register">Register</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+
+        <form action="/login" method="POST">
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br>
+
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password"><br><br>
+
+
+            <input type="submit" value="Login">
+            {{#if message}}
+            <h4 class="alert alert-danger mt-4">{{message}}</h4>
+            {{/if}}
+    </section>
+
+
+
+</body>
+
+</html>

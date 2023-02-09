@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SupermarketPlus</title>
+    <link rel="stylesheet" href="map.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@v0.79.0/dist/L.Control.Locate.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@v0.79.0/dist/L.Control.Locate.min.js"
+        charset="utf-8"></script>
+
+    <link rel="stylesheet" href="../leaflet-search-master/dist/leaflet-search.src.css" />
+    <script src="../leaflet-search-master/dist/leaflet-search.src.js"></script>
+
+
+</head>
+
+<body>
+    <section class="header">
+        <nav>
+            <a href="/index"><img src="images/toppng.com-design-png-hd-logo-design-png-hd-1024x655.png" alt=""
+                    width="10" height="100"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="/index">Home</a></li>
+                    <li><a href="/map">Map</a></li>
+                    <li><a href="">Upload</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Settings</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+
+        <div class="result-content">
+
+
+            <div id="map-container" class="sticky">
+                <div class="text-box-map">
+                    {{!-- <div class="product-container">
+                        {{!-- <div class="product-title-container">
+                            <h1 data-testid="title">Προϊόντα σε καλές τιμές.</h1>
+                            <h2 data-testid="subtitle">Supermarket ακίνητα με τα επιλεγμένα
+                                κριτήρια<span>-</span> Χ προϊόντα κοντά σου.
+                            </h2>
+                        </div> --}}
+                        {{!-- <div class="filter-container">
+                            <div class="grid-x">
+                                <div class="main-filter-container">
+                                    <div class="range-filter-container cell">
+                                        <button type="button" class="range-filter-btn active">Τιμή</button>
+                                    </div>
+                                </div>
+                                <button type="button" class="filter-button">Περισσότερα</button> --}}
+                            </div> --}}
+
+                        </div>
+
+                    </div>
+                    <!--- <div id="map" style="width: 10  00px; height: 400px;"></div> --->
+                    <div id="map" class="map-canvas"></div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <section class="footer">
+        <h4>About me</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi sunt accusamus quisquam reprehenderit
+            voluptas error quasi exercitationem ex molestiae voluptatum eaque,<br> culpa obcaecati nam beatae ipsam
+            quibusdam odio possimus necessitatibus!</p>
+
+    </section>
+
+
+</body>
+
+
+<!--Toggle menu when the the page is getting smaller so that it is scalable-->
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+<script>
+
+    var navLinks = document.getElementById("navLinks");
+    function showMenu() {
+        navLinks.style.right = "0";
+    }
+    function hideMenu() {
+        navLinks.style.right = "-200px";
+    }
+
+</script>
+
+<script>
+
+
+
+</script>
+<script>
+
+    var map = L.map('map').setView([51.505, -0.09], 15);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+        maxZoom: 19
+    }).addTo(map);
+
+    L.control.locate().addTo(map);
+
+    var greenIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
+    var greyIcon = new L.Icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-grey.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+         iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
+
+    var century21icon = L.icon({
+        iconUrl: 'https://i.ibb.co/sJrMTdz/favicon-32x32.png',
+        iconSize: [20, 20]
+        });
+        
+    var loadMap = function (id) {
+        var plateiageorgeiou = [38.246024, 21.735211];
+        var tile_url = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
+        var layer = L.tileLayer(tile_url, {
+            attribution: 'OSM'
+        });
+        map.addLayer(layer);
+        map.setView(plateiageorgeiou, 19);
+
+        map.locate({ setView: true, enableHighAccuracy: true }) /* This will return map so you can do chaining */
+            .on('locationfound', function (e) {
+                var marker = L.marker([e.latitude, e.longitude]).bindPopup('Your are here :)');
+                /*let marker = L.marker([38.246242,
+                    21.7350847], { draggable: "true" });
+ 
+                marker.addTo(map);
+                marker.bindPopup("<b>Πλατεία Γεωργίου</b>").openPopup();
+                marker.on("click", markerClick);
+                
+                function markerClick(event) {
+                    this.getPopup()
+                    .setLatLng(event.latlng)
+                    .setContent("Συντεταγμένες σημείου: " + event.latlng.toString());
+
+                }*/
+
+                var circle = L.circle([e.latitude, e.longitude], e.accuracy / 2, {
+                    weight: 1,
+                    color: 'red',
+                    fillColor: '#cacaca',
+                    fillOpacity: 0.2
+                });
+                map.addLayer(marker);
+                map.addLayer(circle);
+
+
+            })
+
+            .on('locationerror', function (e) {
+                console.log(e);
+                alert("Location access denied.");
+            });
+    };
+    loadMap('map');
+
+
+
+
+
+    $.ajax({
+        'async': true,
+        'global': false,
+        'type': "POST",
+        'url': "/map/showProducts",
+        'dataType': "json",
+        'success': function (data) {
+
+            LAT = data[0].latitude;
+            LON = data[0].lognitude;
+            NAME = data[0].name;
+            console.log("Supp bitchezz")
+            $.each(LAT, function (index, value) {
+
+                let cords = [];
+                console.log(LON[index] + "\t" + value);
+
+                cords.push(LON[index]);
+                cords.push(value);
+
+                onoma = NAME[index] || 'Shall remain nameless';
+
+
+                marker1 = L.marker(L.latLng(cords), { name: onoma, icon: greyIcon   }).bindPopup("<h1>" +  onoma + "</h1>" + "<a href="+ "/map" + "> Add a new product </a>").addTo(map);
+
+
+            });
+        }
+    });
+
+
+
+    $.ajax({
+        'async': true,
+        'global': false,
+        'type': "POST",
+        'url': "/map/showSupermarket",
+        'dataType': "json",
+        'success': function (data) {
+
+            var markersLayer = new L.LayerGroup();	//layer contain searched elements
+
+            map.addLayer(markersLayer);
+
+            var controlSearch = new L.Control.Search({
+                position: 'topleft',
+                layer: markersLayer,
+                propertyName: 'name'
+            });
+
+            var controlSearch1 = new L.Control.Search({
+                position: 'topleft',
+                layer: markersLayer,
+                propertyName: 'category'
+            });
+
+            map.addControl(controlSearch);
+            map.addControl(controlSearch1);
+
+
+            var markers = [];
+
+            var searchSupermarketName = [];
+
+            console.log(searchSupermarketName);
+            LAT = data[0].latitude;
+            LON = data[0].lognitude;
+            NAME = data[0].name;
+            CAT = data[0].categories;
+            PRODUCT = data[0].products;
+
+            $.each(LAT, function (index, value) {
+
+                let cords = [];
+                //console.log(LON[index] + "\t" + value);
+
+                cords.push(LON[index]);
+                cords.push(value);
+
+                onoma = NAME[index] || 'Default title';
+
+                //marker1 = new L.Marker([LON[index], value], {icon: greenIcon}).addTo(map).bindPopup("name:" + NAME[index]);
+
+                marker1 = L.marker(L.latLng(cords), { name: onoma, icon: greenIcon, category: CAT[index] }).bindPopup("<h1>" +  onoma + "</h1>\n" +
+                "<h2> Διαθέσιμα προϊόντα.</h2>"+"<h3>Product: " +  PRODUCT[index] + "</h3>" + "<h4> Product info </4>" + "<h4> Likes: </4>" + "<h4> Dislikes </4>" + "<h4> Price: </4>" + "<h4> Date </4>" + "<h4> Stock: True </4>"
+                 );
+
+                markers.push(marker1);
+
+                if(NAME[index]){
+                    markersLayer.addLayer(marker1);
+                    //console.log(marker1);                    
+                }
+
+
+                //map.addLayer(markersLayer);
+
+            });
+        }
+    });
+
+
+
+</script>
+
+
+</html>

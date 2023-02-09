@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SupermarketPlus</title>
+    <link rel="stylesheet" href="/home.css">
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+</head>
+
+<body>
+    <section class="header">
+        <nav>
+            <a href="/"><img src="images/toppng.com-design-png-hd-logo-design-png-hd-1024x655.png" alt=""
+                    width="20" height="100"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="/login">Log In</a></li>
+                    <li><a href="/register">Register</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+
+        <form action="/register" method="POST">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username"><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br>
+
+            <div class="password"><label for="password">Password:</label><br>
+                <input type="password" id="password" name="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*?[#?!@$%^&*-\]\[]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, one special character, and at least 8 or more characters" required><br>
+            </div>
+
+            <label for="password">Password:</label><br>
+            <input type="password" id="rep_password" name="rep_password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*?[#?!@$%^&*-\]\[]).{8,}" title="Must contain at least one number, one uppercase and lowercase letter , one special character, and at least 8 or more characters" required><br><br>
+
+            <input type="submit" value="Register">
+                {{#if message}}
+                     <h4 class="alert alert-danger mt-4">{{message}}</h4>
+                {{/if}}
+
+        
+    </section>
+
+
+
+</body>
+</html>

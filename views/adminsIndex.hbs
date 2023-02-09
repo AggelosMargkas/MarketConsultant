@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SupermarketPlus</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <section class="header">
+        <nav>
+            <a href="/index"><img src="images/toppng.com-design-png-hd-logo-design-png-hd-1024x655.png" alt=""
+                    width="20" height="100"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="/adminsIndex">Home</a></li>
+                    <li><a href="/adminsIndex">Statistics</a></li>
+                    <li><a href="">Leaderboard</a></li>
+                    <li><a href="">Map</a></li>
+                    <li><a href="">Settings</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+
+        <div class="text-box">
+            <h1>Welcome to SupermarketPlus</h1>
+            <p>An an admin you are responsible for the data that SupermarketPlus is providing. Make sure you give the
+                correct form of data.</p>
+            <a href="" class="hero-btn">Explore what is happening behind.</a>
+        </div>
+
+    </section>
+    <!---   Course  --->
+
+    <section class="course">
+        <h1> Database Product Managment </h1>
+        <p>Provide JSON Files for updating the data in the database. The third column gives you the capability to delete
+            everything.</p>
+
+        <div class="row">
+            <div class="course-col">
+                <h3>Add Category Data</h3>
+                <p>Add json with categories
+                </p>
+                <form id="categories">
+                    <input id="categoriesUpload" type="file"/>
+                    <input type="hidden" name="Filtrarismeno" id="myField1" value="" />
+                    <input type="hidden" name="Filtrarismeno" id="myField2" value="" />
+                    <input type="hidden" name="Filtrarismeno" id="myField3" value="" />
+                    <input type="submit" class="hero-btn-files" value="Submit it.">
+                    <!-- <a href="" class="hero-btn-files">Submit it.</a> -->
+                </form>
+
+
+            </div>
+            <div class="course-col">
+                <h3>Upload</h3>
+                <p>Upload product prices. Product that already but are not update will stay with the same offer as
+                    before.
+                <form id="prices" accept-charset="UTF-8">
+                    <input type="hidden" name="Filtrarismeno" id="myField1" value="" />
+                    <input id="pricesUpload" type="file" />
+                    <input type="submit" class="hero-btn-files" value="Submit it.">
+                    <!-- <a href="" class="hero-btn-files">Submit it.</a> -->
+                </form>
+
+            </div>
+            <div class="course-col">
+                <h3>Nuke!</h3>
+                <p>Delete the entries.</p>
+                <form id="nuke">
+                    <input type="submit" class="hero-btn-files" value="Nuke them all.">
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="course">
+        <h1> Database Supermarket Managment </h1>
+        <p>Provide JSON Files for updating the data in the database about the locations of the Supermarket. The third
+            column gives you the capability to delete
+            everything.</p>
+
+        <div class="row">
+            <div class="course-col1">
+                <h3>Add Supermarket Data</h3>
+                <p>Add json with Supermarket Locations.
+                </p>
+                <form id="supermarketForm" accept-charset="UTF-8">
+                    {{!-- <label for="file-upload" class="custom-file-upload">
+                        <i class="fa fa-cloud-upload"></i> Custom Upload
+                    </label> --}}
+                    <input type="hidden" name="Filtrarismeno" id="myField1" value="" />                    
+                    <input id="geolocationFile" type="file" />
+                    <input type="submit" class="hero-btn-files" value="Submit it.">
+                    <!-- <a href="" class="hero-btn-files">Submit it.</a> -->
+                </form>
+
+
+            </div>
+
+            <div class="course-col1">
+
+                <h3>BURN!</h3>
+                <p>Delete them allll</p>
+                <form id="nuke_again">
+                    <input type="submit" class="hero-btn-files" value="DELETE.">
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="footer">
+        <h4>About me</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi sunt accusamus quisquam reprehenderit
+            voluptas error quasi exercitationem ex molestiae voluptatum eaque,<br> culpa obcaecati nam beatae ipsam
+            quibusdam odio possimus necessitatibus!</p>
+
+    </section>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+    </script>
+
+<script src="/fileFiltering.js"></script>
+{{!-- <script src="/fileCategoriesProcessing.js"></script>
+<script src="/fileProductPricesProcessing.js"></script> --}}
+<script src="/fileLoading.js"></script>
+
+
+<script>
+
+    var navLinks = document.getElementById("navLinks");
+    function showMenu() {
+        navLinks.style.right = "0";
+    }
+    function hideMenu() {
+        navLinks.style.right = "-200px";
+    }
+
+</script>
+<script>
+
+    var navLinks = document.getElementById("navLinks");
+    function showMenu() {
+        navLinks.style.right = "0";
+    }
+    function hideMenu() {
+        navLinks.style.right = "-200px";
+    }
+
+</script>
+
+
+</html>

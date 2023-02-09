@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <title>SupermarketPlus</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+
+<body>
+    <section class="header">
+        <nav>
+            <a href="/index"><img src="images/toppng.com-design-png-hd-logo-design-png-hd-1024x655.png" alt=""
+                    width="20" height="100"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="/index">Home</a></li>
+                    <li><a href="/map">Map</a></li>
+                    <li><a href="">Upload</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Me</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+
+        <div class="text-box">
+            <h1>Welcome to SupermarketPlus</h1>
+            <p>Shopping has never been easier join the community and <br>buy the best in the best prices</p>
+            <a href="" class="hero-btn">Explore what is close to you</a>
+        </div>
+
+    </section>
+    <!---   Course  --->
+
+    <section class="course">
+        <h1> Goals </h1>
+        <p>SupermarketPro aims to create a community that wants to buy smart, fast and affordable</p>
+
+        <div class="row">
+            <div class="course-col">
+                <h3>Search</h3>
+                <p>You have the capability of searching the best offers in your nearest supermarket. By being a member
+                    you can explore the deals that other people found insightful and share your opinion with an easy
+                    interface.
+                </p>
+            </div>
+            <div class="course-col">
+                <h3>Upload</h3>
+                <p>Submit an offer: if a store is selected for submission of an offer, a hierarchical
+                    When a selection is made, a hierarchical list of categories (accordion or dropdown), subcategories
+                    and products (3 deep, the last one being 3 deep) is displayed.
+                    A quick product search box for direct search of the product (the lowest level is the products) and a
+                    quick search box for finding the product directly.
+                    product. By selecting the product either from the list or from the search box, the user
+                    can fill in the price they consider an offer and submit it for publication, whereupon
+                    be informed of the result of the evaluation check (see point 5. Evaluation score). A
+                    tender is automatically deleted after one week from its submission.
+                    If a week has elapsed, but criterion 5.a.i or 5.a.ii is still met, the tenderer will be deemed to
+                    have been rejected.
+                    below, the offer shall be renewed for another week, but the user who submitted it shall not
+                    receive points again.
+                    A user may not</p>
+            </div>
+            <div class="course-col">
+                <h3>Win!</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, optio possimus veniam adipisci
+                    voluptatem harum recusandae ducimus fugit facilis reprehenderit eaque eveniet consequuntur et
+                    eligendi modi repellendus obcaecati a nulla!</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer">
+        <h4>About me</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi sunt accusamus quisquam reprehenderit
+            voluptas error quasi exercitationem ex molestiae voluptatum eaque,<br> culpa obcaecati nam beatae ipsam
+            quibusdam odio possimus necessitatibus!</p>
+
+    </section>
+
+
+
+    <script>
+
+        var navLinks = document.getElementById("navLinks");
+        function showMenu() {
+            navLinks.style.right = "0";
+        }
+        function hideMenu() {
+            navLinks.style.right = "-200px";
+        }
+
+    </script>
+    <script>
+
+        var navLinks = document.getElementById("navLinks");
+        function showMenu() {
+            navLinks.style.right = "0";
+        }
+        function hideMenu() {
+            navLinks.style.right = "-200px";
+        }
+
+    </script>
+
+</body>
+
+</html>
