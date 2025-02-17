@@ -1,9 +1,4 @@
-/*
 
-https://www.youtube.com/watch?v=AZOZVyLrMvc&list=PLD9SRxG6ST3GBsczn8OUKLaErhrvOz9zQ&index=6
-
-
-*/ 
 const express = require("express");
 const mysql = require("mysql");
 const dotenv = require("dotenv");
